@@ -1,0 +1,15 @@
+current directory: /root/dostep_drzwi/vendor/bundle/ruby/3.0.0/gems/stringio-3.1.0/ext/stringio
+/root/.asdf/installs/ruby/3.0.0/bin/ruby -I /root/.asdf/installs/ruby/3.0.0/lib/ruby/3.0.0 -r ./siteconf20240110-28215-w7zduk.rb extconf.rb
+creating Makefile
+
+current directory: /root/dostep_drzwi/vendor/bundle/ruby/3.0.0/gems/stringio-3.1.0/ext/stringio
+make "DESTDIR=" clean
+
+current directory: /root/dostep_drzwi/vendor/bundle/ruby/3.0.0/gems/stringio-3.1.0/ext/stringio
+make "DESTDIR="
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /root/dostep_drzwi/vendor/bundle/ruby/3.0.0/gems/stringio-3.1.0/ext/stringio
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20240110-28215-plmb3w

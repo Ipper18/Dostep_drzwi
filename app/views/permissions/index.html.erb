@@ -1,0 +1,28 @@
+<h1>Permissions List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Room</th>
+      <th>Valid from</th>
+      <th>Valid to</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permissions.each do |permission| %>
+      <tr>
+        <td><%= permission.user.user_name %></td>
+        <td><%= permission.room.room_name %></td>
+        <td><%= permission.valid_from %></td>
+        <td><%= permission.valid_to %></td>
+        <td><%= link_to 'Show', permission %></td>
+        <td><%= link_to 'Edit', edit_permission_path(permission) %></td>
+        <td><%= link_to 'Destroy', permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Permission', new_permission_path %>

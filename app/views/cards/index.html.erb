@@ -1,0 +1,13 @@
+<h1>Cards List</h1>
+<table>
+  <!-- Tabele headers etc. -->
+  <% @cards.each do |card| %>
+    <tr>
+      <!-- Dane karty -->
+      <td><%= link_to 'Show', card %></td>
+      <td><%= link_to 'Edit', edit_card_path(card) %></td>
+      <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New Card', new_card_path %>

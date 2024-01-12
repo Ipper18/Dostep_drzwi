@@ -1,0 +1,25 @@
+<h1>Access Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>More</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @access_logs.each do |log| %>
+      <tr>
+        <td><%= log.id %></td>
+        <td><%= log.created_at %></td>
+        <td><%= log.user_id %></td> <!-- Zakładając, że log ma user_id -->
+        <td><%= log.action %></td> <!-- Zakładając, że log ma pole action -->
+        <td><%= link_to 'Show', access_log_path(log) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

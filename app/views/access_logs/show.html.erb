@@ -1,0 +1,23 @@
+<h1>Access Log Details</h1>
+
+<p>
+  <strong>ID:</strong>
+  <%= @access_log.id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @access_log.created_at %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @access_log.user_id %> <!-- Załóżmy, że log ma user_id -->
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @access_log.action %> <!-- Załóżmy, że log ma pole action -->
+</p>
+
+<%= link_to 'Back to Logs', access_logs_path %>

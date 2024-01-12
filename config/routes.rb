@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   # Devise routes for users
-  devise_for :users
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
 
   # Resources for users, rooms, permissions, and logs
   resources :users
   resources :rooms
   resources :permissions
+  resources :cards
 
   # Root route
   root to: 'static#index'
+  get '/dashboard', to: 'users#dashboard'
+
 
   # Resources for access logs with only index and show actions
   resources :access_logs, only: [:index]

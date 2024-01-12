@@ -9,6 +9,8 @@ class PermissionsController < ApplicationController
 
    # GET /permissions/1 or /permissions/1.json
    def show
+     @permission = Permission.find(params[:id])
+     redirect_to permissions_path
    end
 
    # GET /permissions/new
@@ -67,6 +69,6 @@ class PermissionsController < ApplicationController
      # Only allow a list of trusted parameters through.
      def permission_params
        # Update these parameters to match the attributes of your Permission model
-       params.require(:permission).permit(:name, :description)
+       params.require(:permission).permit(:user_id, :room_id, :valid_from, :valid_to)
      end
 end

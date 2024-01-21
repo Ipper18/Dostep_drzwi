@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_12_125453) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_21_154356) do
   create_table "access_logs", force: :cascade do |t|
     t.integer "user_id"
     t.string "action"
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_access_logs_on_room_id"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -68,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_125453) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "access_logs", "rooms"
   add_foreign_key "cards", "users"
   add_foreign_key "logs", "cards"
   add_foreign_key "logs", "rooms"

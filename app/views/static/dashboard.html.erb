@@ -18,8 +18,8 @@
       <a href="/users" class="list-group-item list-group-item-action">Użytkownicy</a>
       <a href="/permissions" class="list-group-item list-group-item-action">Uprawnienia</a>
       <a href="/cards" class="list-group-item list-group-item-action">Karty</a>
-      <!-- Dodaj więcej przycisków/linków według potrzeb -->
     </div>
+    <%= link_to 'Wyloguj się', destroy_user_session_path, method: :delete, class: 'btn btn-primary mt-3' %>
   </div>
 </body>
 </html>

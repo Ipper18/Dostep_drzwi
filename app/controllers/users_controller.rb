@@ -23,6 +23,26 @@ class UsersController < ApplicationController
   def dashboard
   end
 
+  def list
+  @users = User.all
+  end
+
+  def reset_password_form
+  # Widok formularza resetowania hasła
+  end
+
+  def send_reset_password
+    user = User.find_by(email: params[:email])
+
+    if user
+      UserMailer.reset_password_email(user).deliver_now
+      # dalsza logika, np. przekierowanie z informacją o wysłaniu maila
+    else
+      # logika na wypadek, gdy użytkownik nie zostanie znaleziony
+    end
+    redirect_to root_path, notice: 'Email do resetowania hasła został wysłany.'
+  end
+
   # POST /users or /users.json
   def create
     @user = User.new(user_params)

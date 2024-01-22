@@ -13,7 +13,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def after_failure_path_for
-  # Ścieżka, na którą użytkownik zostanie przekierowany po nieudanym logowaniu
   new_user_session_path
   end
 end

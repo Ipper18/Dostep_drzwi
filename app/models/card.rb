@@ -1,9 +1,10 @@
 class Card < ApplicationRecord
-  # Zakładając, że karta należy do użytkownika
+
   belongs_to :user
 
-  # Jeśli karta ma wiele logów
+
   has_many :access_logs, dependent: :destroy
+  has_many :permissions
 
   #after_create :log_create
   #after_update :log_update

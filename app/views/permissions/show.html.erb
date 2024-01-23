@@ -1,0 +1,14 @@
+<h1>Uprawnienia dla karty numer: <%= @permission.card.id %></h1>
+
+<p>Card ID: <%= @permission.card.id %></p>
+<p>Pokoje:</p>
+<ul>
+  <% @permission.rooms.each do |room| %>
+    <li><%= room.room_name %></li>
+  <% end %>
+</ul>
+<p>Ważna od: <%= @permission.valid_from %></p>
+<p>Ważna do: <%= @permission.valid_to %></p>
+
+<%= link_to 'Edit', edit_permission_path(@permission) %> |
+<%= link_to 'Back', permissions_path %>

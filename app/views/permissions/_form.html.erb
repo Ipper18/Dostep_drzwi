@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.collection_select :user_id, User.all, :id, :user_name, include_blank: true %>
+    <%= form.label :card_id, 'Numer Karty' %>
+    <%= form.collection_select :card_id, Card.all, :id, :id, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :room_id %>
-    <%= form.collection_select :room_id, Room.all, :id, :room_name, include_blank: true %>
+    <%= form.label :room_ids, 'Pokoje' %>
+    <%= form.collection_select :room_ids, Room.all, :id, :room_name, {}, { multiple: true, size: 6 } %>
   </div>
 
   <div class="field">

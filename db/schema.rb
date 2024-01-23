@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_174920) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_072757) do
   create_table "access_logs", force: :cascade do |t|
     t.integer "user_id"
     t.string "action"
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_174920) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "card_id"
+    t.index ["card_id"], name: "index_cards_on_card_id", unique: true
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
@@ -48,8 +50,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_174920) do
     t.date "valid_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "card_id"
+    t.index ["card_id"], name: "index_permissions_on_card_id"
     t.index ["room_id"], name: "index_permissions_on_room_id"
     t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
+
+  create_table "permissions_rooms", id: false, force: :cascade do |t|
+    t.integer "permission_id", null: false
+    t.integer "room_id", null: false
+    t.index ["permission_id"], name: "index_permissions_rooms_on_permission_id"
+    t.index ["room_id"], name: "index_permissions_rooms_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|

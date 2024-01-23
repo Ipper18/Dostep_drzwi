@@ -2,27 +2,26 @@ class PermissionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_permission, only: [:show, :edit, :update, :destroy]
 
-  # GET /permissions or /permissions.json
+
    def index
      @permissions = Permission.all
    end
 
-   # GET /permissions/1 or /permissions/1.json
+
    def show
      @permission = Permission.find(params[:id])
-     redirect_to permissions_path
    end
 
-   # GET /permissions/new
+
    def new
      @permission = Permission.new
    end
 
-   # GET /permissions/1/edit
+
    def edit
    end
 
-   # POST /permissions or /permissions.json
+
    def create
      @permission = Permission.new(permission_params)
 
@@ -37,7 +36,7 @@ class PermissionsController < ApplicationController
      end
    end
 
-   # PATCH/PUT /permissions/1 or /permissions/1.json
+
    def update
      respond_to do |format|
        if @permission.update(permission_params)
@@ -50,7 +49,7 @@ class PermissionsController < ApplicationController
      end
    end
 
-   # DELETE /permissions/1 or /permissions/1.json
+
    def destroy
      @permission.destroy!
 
@@ -61,14 +60,12 @@ class PermissionsController < ApplicationController
    end
 
    private
-     # Use callbacks to share common setup or constraints between actions.
+
      def set_permission
        @permission = Permission.find(params[:id])
      end
 
-     # Only allow a list of trusted parameters through.
      def permission_params
-       # Update these parameters to match the attributes of your Permission model
-       params.require(:permission).permit(:user_id, :room_id, :valid_from, :valid_to)
+       params.require(:permission).permit(:card_id, { room_ids: [] }, :valid_from, :valid_to)
      end
 end

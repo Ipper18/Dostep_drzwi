@@ -14,6 +14,11 @@
   <% end %>
 
   <div class="field">
+     <%= form.label :card_id, 'Numer ID Karty' %>
+     <%= form.text_field :card_id, readonly: true, value: @card.id %>
+  </div>
+
+  <div class="field">
     <%= form.label :user_id %>
     <%= form.collection_select :user_id, User.all, :id, :user_name, include_blank: true %>
   </div>

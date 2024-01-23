@@ -1,7 +1,9 @@
 class Permission < ApplicationRecord
-  # Uprawnienie należy do użytkownika i do pomieszczenia
-  belongs_to :user
-  belongs_to :room
+
+  belongs_to :card
+  has_and_belongs_to_many :rooms
+
+
 
 #  after_create :log_create
 #  after_update :log_update

@@ -13,16 +13,19 @@
     </div>
   <% end %>
 
+  <!-- Wybór karty -->
   <div class="field">
-    <%= form.label :user_id, 'User' %>
-    <%= form.collection_select :user_id, User.all, :id, :user_name, include_blank: true %>
+    <%= form.label :card_id, 'Card' %>
+    <%= form.collection_select :card_id, Card.all, :id, :id, include_blank: true %>
   </div>
 
+  <!-- Wybór pokoi -->
   <div class="field">
-    <%= form.label :room_id, 'Room' %>
-    <%= form.collection_select :room_id, Room.all, :id, :room_name, include_blank: true %>
+    <%= form.label :room_ids, 'Rooms' %>
+    <%= form.collection_select :room_ids, Room.all, :id, :room_name, { include_blank: false }, { multiple: true, size: 5 } %>
   </div>
 
+  <!-- Data ważności uprawnienia -->
   <div class="field">
     <%= form.label :valid_from %>
     <%= form.date_select :valid_from %>
